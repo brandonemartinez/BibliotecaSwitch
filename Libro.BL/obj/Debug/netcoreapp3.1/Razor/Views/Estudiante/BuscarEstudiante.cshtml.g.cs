@@ -14,20 +14,20 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
 #line 1 "C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\Views\_ViewImports.cshtml"
-using Libro.BL;
+using LibroBL;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 2 "C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\Views\_ViewImports.cshtml"
-using Libro.BL.Models;
+using LibroBL.Models;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0850de8e12092ccc3d58e06b478f66f933934aa0", @"/Views/Estudiante/BuscarEstudiante.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"057d3fc32d8c01d691e3eec931d83dbaf48a3840", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"267858849c179cde101a1812e1d57e82ea08fdd3", @"/Views/_ViewImports.cshtml")]
     public class Views_Estudiante_BuscarEstudiante : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<Estudiante>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "ListaEstudiante", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -153,7 +153,7 @@ Write(Html.ActionLink("Edit", "EditarEstudiante", new {  id = Model.NumeroEstudi
 #line hidden
 #nullable disable
             WriteLiteral(" |\r\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0850de8e12092ccc3d58e06b478f66f933934aa07524", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0850de8e12092ccc3d58e06b478f66f933934aa07522", async() => {
                 WriteLiteral("Back to List");
             }
             );

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "g+vKGHm351/AOVCyxAfkfbL+154cpnWcqhgCw5S44P89CKO9pZC25IgxL9AYvMOjsDzUmDkM/qrkln1kXSAm6g==",
+  "dgSpecHash": "Wszchxivv0sQj4G0GmcmTy6Qeq3M3j6TUCBWdbfjXoOO4iEmyvoeC3KiI9v+ONbwMHQg98MLcTHMbdpAJoVtbQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\bmartinez\\source\\repos\\Biblioteca\\Libro.BL\\Libro.BL.csproj",
+  "projectFilePath": "C:\\Users\\bmartinez\\source\\repos\\Biblioteca\\Libro.BL\\LibroBL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bmartinez\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\bmartinez\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

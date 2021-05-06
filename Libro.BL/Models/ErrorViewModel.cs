@@ -1,6 +1,6 @@
 using System;
 
-namespace Libro.BL.Models
+namespace LibroBL.Models
 {
     public class ErrorViewModel
     {

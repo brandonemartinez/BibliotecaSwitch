@@ -14,20 +14,20 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
 #line 1 "C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\Views\_ViewImports.cshtml"
-using Libro.BL;
+using LibroBL;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 2 "C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\Views\_ViewImports.cshtml"
-using Libro.BL.Models;
+using LibroBL.Models;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4144dfa62e5b37ebfeacc0716050273c230a4cb7", @"/Views/Estudiante/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"057d3fc32d8c01d691e3eec931d83dbaf48a3840", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"267858849c179cde101a1812e1d57e82ea08fdd3", @"/Views/_ViewImports.cshtml")]
     public class Views_Estudiante_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-area", "", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -69,7 +69,7 @@ using Libro.BL.Models;
 #line hidden
 #nullable disable
             WriteLiteral("<div class=\"container\">\r\n    <div class=\"row\">\r\n        <div class=\"col text-center mt-5\">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4144dfa62e5b37ebfeacc0716050273c230a4cb75245", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4144dfa62e5b37ebfeacc0716050273c230a4cb75243", async() => {
                 WriteLiteral("<button type=\"button\" class=\"btn btn-primary btn-lg m-2\">Lista de Estudiantes</button>");
             }
             );
@@ -89,7 +89,7 @@ using Libro.BL.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4144dfa62e5b37ebfeacc0716050273c230a4cb76902", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4144dfa62e5b37ebfeacc0716050273c230a4cb76900", async() => {
                 WriteLiteral("<button type=\"button\" class=\"btn btn-secondary btn-lg m-2\">Agregar estudiante</button>");
             }
             );
@@ -109,7 +109,7 @@ using Libro.BL.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4144dfa62e5b37ebfeacc0716050273c230a4cb78559", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4144dfa62e5b37ebfeacc0716050273c230a4cb78557", async() => {
                 WriteLiteral("<button type=\"button\" class=\"btn btn-primary btn-lg m-2\">Buscar estudiante</button>");
             }
             );
@@ -129,7 +129,7 @@ using Libro.BL.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4144dfa62e5b37ebfeacc0716050273c230a4cb710213", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4144dfa62e5b37ebfeacc0716050273c230a4cb710211", async() => {
                 WriteLiteral("<button type=\"button\" class=\"btn btn-secondary btn-lg m-2\">Eliminar estudiante</button>");
             }
             );

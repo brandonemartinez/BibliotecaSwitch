@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 #nullable disable
 
-namespace Libro.BL.Models
+namespace LibroBL.Models
 {
     public partial class BibliotecaContext : DbContext
     {

@@ -8605,9 +8605,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\bmartinez\\source\\repos\\Biblioteca\\Libro.BL\\Libro.BL.csproj",
-      "projectName": "Libro.BL",
-      "projectPath": "C:\\Users\\bmartinez\\source\\repos\\Biblioteca\\Libro.BL\\Libro.BL.csproj",
+      "projectUniqueName": "C:\\Users\\bmartinez\\source\\repos\\Biblioteca\\Libro.BL\\LibroBL.csproj",
+      "projectName": "LibroBL",
+      "projectPath": "C:\\Users\\bmartinez\\source\\repos\\Biblioteca\\Libro.BL\\LibroBL.csproj",
       "packagesPath": "C:\\Users\\bmartinez\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\bmartinez\\source\\repos\\Biblioteca\\Libro.BL\\obj\\",
       "projectStyle": "PackageReference",

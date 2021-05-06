@@ -14,20 +14,20 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
 #line 1 "C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\Views\_ViewImports.cshtml"
-using Libro.BL;
+using LibroBL;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 2 "C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\Views\_ViewImports.cshtml"
-using Libro.BL.Models;
+using LibroBL.Models;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"556ebfd2d5cb39fc9479c18c3afbd7a583ec622b", @"/Views/Estudiante/ListaEstudiante.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"057d3fc32d8c01d691e3eec931d83dbaf48a3840", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"267858849c179cde101a1812e1d57e82ea08fdd3", @"/Views/_ViewImports.cshtml")]
     public class Views_Estudiante_ListaEstudiante : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<Estudiante>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "Estudiante", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -66,7 +66,7 @@ using Libro.BL.Models;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n<h1>Lista de Estudiantes</h1>\r\n\r\n<p>\r\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "556ebfd2d5cb39fc9479c18c3afbd7a583ec622b4071", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "556ebfd2d5cb39fc9479c18c3afbd7a583ec622b4069", async() => {
                 WriteLiteral("Create New");
             }
             );

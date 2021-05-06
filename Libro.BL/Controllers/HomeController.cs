@@ -1,4 +1,4 @@
-﻿using Libro.BL.Models;
+﻿using LibroBL.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -7,7 +7,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Libro.BL.Controllers
+namespace LibroBL.Controllers
 {
     public class HomeController : Controller
     {

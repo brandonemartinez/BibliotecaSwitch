@@ -1,12 +1,12 @@
-﻿using Libro.BL.Models;
-using Libro.BL.Repositorio;
+﻿using LibroBL.Models;
+using LibroBL.Repositorio;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Libro.BL.Controllers
+namespace LibroBL.Controllers
 {
     public class EstudianteController : Controller
     {

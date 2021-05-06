@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 #nullable disable
 
-namespace Libro.BL.Models
+namespace LibroBL.Models
 {
     public partial class Libro
     {
@@ -12,9 +14,19 @@ namespace Libro.BL.Models
             Prestamos = new HashSet<Prestamo>();
         }
 
+        [DisplayName("ISBN")]
         public int Isbn { get; set; }
+        [DisplayName("ID Autor")]
         public int? Idautor { get; set; }
+
+        [DataType(DataType.Text)]
+        [Required(ErrorMessage = "{0} es requerido")]
         public string Titulo { get; set; }
+
+        [DisplayName("Fecha de Lanzamiento")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
+        [Required(ErrorMessage = "Fecha de Nacimiento es requerido")]
         public DateTime? FechaLanzamiento { get; set; }
 
         public virtual Autor IdautorNavigation { get; set; }

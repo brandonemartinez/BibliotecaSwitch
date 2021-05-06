@@ -4,10 +4,11 @@
 <div class="container">
     <div class="row">
         <div class="col text-center mt-5">
-            <button type="button" class="btn btn-primary btn-lg m-2">Lista de Libros</button>
-            <button type="button" class="btn btn-secondary btn-lg m-2">Agregar Libro</button>
-            <button type="button" class="btn btn-primary btn-lg m-2">Buscar Libro</button>
-            <button type="button" class="btn btn-secondary btn-lg m-2">Eliminar Libro</button>
+            <a asp-area="" asp-controller="Libro" asp-action="ListaLibro"><button type="button" class="btn btn-primary btn-lg m-2">Lista de Libros</button></a>
+            <a asp-area="" asp-controller="Libro" asp-action="ListaLibro"><button type="button" class="btn btn-primary btn-lg m-2">Lista de Libros en Prestamo</button></a>
+            <a asp-area="" asp-controller="Libro" asp-action="AgregarLibro"><button type="button" class="btn btn-secondary btn-lg m-2">Agregar Libro</button></a>
+            <a asp-area="" asp-controller="Libro" asp-action="BuscarLibro"><button type="button" class="btn btn-primary btn-lg m-2">Buscar Libro</button></a>
+            <a asp-area="" asp-controller="Libro" asp-action="EliminarLibro"><button type="button" class="btn btn-secondary btn-lg m-2">Eliminar Libro</button></a>
         </div>
     </div>
 </div>
