@@ -1,4 +1,5 @@
-﻿using LibroBL.Repositorio;
+﻿using LibroBL.Models;
+using LibroBL.Repositorio;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -21,10 +22,27 @@ namespace LibroBL.Controllers
             return View(colLibros);
         }
 
-        public IActionResult AgregarLibroDB(Models.Libro libro)
+        public IActionResult AgregarLibro()
         {
+            return View();
+        }
 
-            return RedirectToAction("ListarLibro");
+        public IActionResult AgregarLibroDB(Libro libro)
+        {
+            foo.Agregar(libro);
+            return RedirectToAction("ListaLibro");
+        }
+
+        public IActionResult LibroEstudiante(Libro libro)
+        {
+            var hlibro = foo.GetLibro(libro.Isbn);
+            return View("EditarLibro", hlibro);
+        }
+
+        public IActionResult EditarEstudianteSend(Libro libro)
+        {
+            foo.EditSend(libro);
+            return RedirectToAction("ListaEstudiante");
         }
     }
 }

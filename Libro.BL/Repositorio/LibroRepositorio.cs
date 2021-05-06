@@ -23,54 +23,51 @@ namespace LibroBL.Repositorio
             return colLibros;
         }
 
-        //public void Agregar(UsuarioLibro _estudiante)
-        //{
-            //Libro est = new Libro();
-            //est.Nombre = _estudiante.Nombre;
-            //est.Apellido = _estudiante.Apellido;
-            //est.FechaNacimiento = _estudiante.FechaNacimiento;
-
-            //Usuario usu = new Usuario();
-            //usu.Pass = _estudiante.Pass;
-            //usu.NombreUsuario = _estudiante.Usuario;
-            //usu.Tipo = "Libro";
-
-            //using (BibliotecaContext context = new BibliotecaContext())
-            //{
-                //context.Usuarios.Add(usu);
-
-                //est.Usuario = usu;
-                //context.Libros.Add(est);
-
-                //context.SaveChanges();
-
-            //};
-        //}
-
-        public Models.Libro GetLibro(int id)
+        public void Agregar(Libro libro)
         {
-            Models.Libro estudiante = new Models.Libro();
+            Autor autor = new Autor();
+
 
             using (BibliotecaContext context = new BibliotecaContext())
             {
-                estudiante = context.Libros.Find(id);
-            };
+                if (libro.Idautor != null)
+                {
+                    libro.IdautorNavigation = context.Autors.Where(w => w.Id == libro.Idautor).FirstOrDefault();
+                }
+                else
+                {
+                    context.Libros.Add(libro);
+                }
+                context.Libros.Add(libro);
 
-            return estudiante;
+                context.SaveChanges();
+
+            };
         }
 
-        //public void EditSend(Models.Libro estudiante)
-        //{
-        //    using (BibliotecaContext context = new BibliotecaContext())
-        //    {
-        //        Models.Libro Hestudiante = context.Libros.Where(w => w.NumeroLibro == estudiante.NumeroLibro).FirstOrDefault();
-        //        Hestudiante.Nombre = estudiante.Nombre;
-        //        Hestudiante.Apellido = estudiante.Apellido;
-        //        Hestudiante.FechaNacimiento = estudiante.FechaNacimiento;
+        public Libro GetLibro(int id)
+        {
+            Libro libro = new Libro();
 
-        //        context.SaveChanges();
-        //    };
-        //}
+            using (BibliotecaContext context = new BibliotecaContext())
+            {
+                libro = context.Libros.Find(id);
+            };
+
+            return libro;
+        }
+
+        public void EditSend(Libro libro)
+        {
+            using (BibliotecaContext context = new BibliotecaContext())
+            {
+                Libro Hlibro = context.Libros.Where(w => w.Isbn == libro.Isbn).FirstOrDefault();
+                Hlibro.Titulo = libro.Titulo;
+                Hlibro.FechaLanzamiento = libro.FechaLanzamiento;
+
+                context.SaveChanges();
+            };
+        }
 
         //public void Remove(int id)
         //{

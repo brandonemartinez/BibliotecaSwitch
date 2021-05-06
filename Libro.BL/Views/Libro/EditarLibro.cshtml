@@ -1,22 +1,18 @@
-﻿@model Libro
+﻿@model LibroBL.Models.Libro
 
 @{
-    ViewData["Title"] = "AgregarLibro";
+    ViewData["Title"] = "EditarLibro";
 }
 
-<h1>AgregarLibro</h1>
+<h1>EditarLibro</h1>
 
 <h4>Libro</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="AgregarLibroDB">
+        <form asp-action="EditSend">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Idautor" class="control-label"></label>
-                <input asp-for="Idautor" class="form-control" />
-                <span asp-validation-for="Idautor" class="text-danger"></span>
-            </div>
+            <input type="hidden" asp-for="Isbn" />
             <div class="form-group">
                 <label asp-for="Titulo" class="control-label"></label>
                 <input asp-for="Titulo" class="form-control" />
@@ -28,7 +24,7 @@
                 <span asp-validation-for="FechaLanzamiento" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
