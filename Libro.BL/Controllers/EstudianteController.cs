@@ -29,8 +29,41 @@ namespace Libro.BL.Controllers
         public IActionResult AgregarEstudianteDB(UsuarioEstudiante estudiante)
         {
             foo.Agregar(estudiante);
-            return View("Index");
+            return RedirectToAction("ListaEstudiante");
         }
 
+        public IActionResult BuscarEstudiante(Estudiante estudiante)
+        {
+            var HelperEstudiante = foo.GetEstudiante(estudiante.NumeroEstudiante);
+            return View(HelperEstudiante);
+        }
+
+        public IActionResult EditarEstudiante(int id)
+        {
+            var estudiante = foo.GetEstudiante(id);
+            return View("EditarEstudiante", estudiante);
+        }
+
+        public IActionResult EditarEstudianteSend(Estudiante estudiante)
+        {
+            foo.EditSend(estudiante);
+            return RedirectToAction("ListaEstudiante");
+        }
+
+        public IActionResult BorrarEstudiante(Estudiante estudiante)
+        {
+            foo.Remove(estudiante.NumeroEstudiante);
+            return RedirectToAction("ListaEstudiante");
+        }
+
+        public IActionResult EliminarEstudiante()
+        {
+            return View();
+        }
+
+        public IActionResult FindEstudiante()
+        {
+            return View();
+        }
     }
 }

@@ -1,13 +1,13 @@
-﻿@model IEnumerable<DTOEstudiante>
+﻿@model IEnumerable<Estudiante>
 
 @{
     ViewData["Title"] = "ListaEstudiante";
 }
 
-<h1>ListaEstudiante</h1>
+<h1>Lista de Estudiantes</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-controller="Estudiante" asp-action="AgregarEstudiante">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -49,9 +49,9 @@
                 @Html.DisplayFor(modelItem => item.Apellido)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Edit", "EditarEstudiante", new { id=item.NumeroEstudiante}) |
+                @Html.ActionLink("Details", "BuscarEstudiante", item) |
+                @Html.ActionLink("Delete", "BorrarEstudiante", item)
             </td>
         </tr>
 }

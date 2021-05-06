@@ -153,3 +153,8 @@ C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\bin\Debug\netcoreapp3.1\runt
 C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\obj\Debug\netcoreapp3.1\Libro.BL.Views.pdb
 C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\obj\Debug\netcoreapp3.1\Libro.BL.csproj.CopyComplete
 C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\obj\Debug\netcoreapp3.1\Libro.BL.genruntimeconfig.cache
+C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\obj\Debug\netcoreapp3.1\Razor\Views\Estudiante\BuscarEstudiante.cshtml.g.cs
+C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\obj\Debug\netcoreapp3.1\Razor\Views\Estudiante\EditarEstudiante.cshtml.g.cs
+C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\obj\Debug\netcoreapp3.1\Libro.BL.csprojAssemblyReference.cache
+C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\obj\Debug\netcoreapp3.1\Razor\Views\Estudiante\EliminarEstudiante.cshtml.g.cs
+C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\obj\Debug\netcoreapp3.1\Razor\Views\Estudiante\FindEstudiante.cshtml.g.cs

@@ -15,7 +15,7 @@ namespace Libro.BL.Repositorio
 
         public IEnumerable<Estudiante> GetEstudiantes()
         {
-            List<Estudiante> colEstudiantes = new List<Estudiante>(); 
+            List<Estudiante> colEstudiantes = new List<Estudiante>();
             using (BibliotecaContext context = new BibliotecaContext())
             {
                 colEstudiantes = context.Estudiantes.ToList();
@@ -37,12 +37,12 @@ namespace Libro.BL.Repositorio
 
             using (BibliotecaContext context = new BibliotecaContext())
             {
-               context.Usuarios.Add(usu);
+                context.Usuarios.Add(usu);
 
-               est.Usuario = usu;
-               context.Estudiantes.Add(est);
-            
-               context.SaveChanges();
+                est.Usuario = usu;
+                context.Estudiantes.Add(est);
+
+                context.SaveChanges();
 
             };
         }
@@ -53,18 +53,39 @@ namespace Libro.BL.Repositorio
 
             using (BibliotecaContext context = new BibliotecaContext())
             {
-               estudiante = context.Estudiantes.Find(id);
+                estudiante = context.Estudiantes.Find(id);
             };
 
             return estudiante;
+        }
+
+        public void EditSend(Estudiante estudiante)
+        {
+            using (BibliotecaContext context = new BibliotecaContext())
+            {
+                Estudiante Hestudiante = context.Estudiantes.Where(w => w.NumeroEstudiante == estudiante.NumeroEstudiante).FirstOrDefault();
+                Hestudiante.Nombre = estudiante.Nombre;
+                Hestudiante.Apellido = estudiante.Apellido;
+                Hestudiante.FechaNacimiento = estudiante.FechaNacimiento;
+
+                context.SaveChanges();
+            };
         }
 
         public void Remove(int id)
         {
             using (BibliotecaContext context = new BibliotecaContext())
             {
-               Estudiante estudiante = context.Estudiantes.Find(id);
-               context.Estudiantes.Remove(estudiante);
+                Estudiante estudiante = context.Estudiantes.Where(w => w.NumeroEstudiante == id).FirstOrDefault();
+                context.Estudiantes.Remove(estudiante);
+
+                if (estudiante.Idusuario != null)
+                {
+                    Usuario usuario = context.Usuarios.Find(estudiante.Idusuario);
+                    context.Usuarios.Remove(usuario);
+                }
+
+                context.SaveChanges();
             };
         }
 

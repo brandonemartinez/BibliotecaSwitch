@@ -1,17 +1,22 @@
-﻿@model UsuarioEstudiante
+﻿@model Estudiante
 
 @{
-    ViewData["Title"] = "AgregarEstudiante";
+    ViewData["Title"] = "EditarEstudiante";
 }
 
-<h1>Agregar Estudiante</h1>
+<h1>Editar Estudiante</h1>
 
-<h4>Estudiante y Usuario</h4>
+<h4>Estudiante</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="AgregarEstudianteDB" >
+        <form asp-action="EditarEstudianteSend">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NumeroEstudiante" class="control-label"></label>
+                <input asp-for="NumeroEstudiante" class="form-control" />
+                <span asp-validation-for="NumeroEstudiante" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="FechaNacimiento" class="control-label"></label>
                 <input asp-for="FechaNacimiento" class="form-control" />
@@ -28,24 +33,14 @@
                 <span asp-validation-for="Apellido" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Usuario" class="control-label"></label>
-                <input asp-for="Usuario" class="form-control" />
-                <span asp-validation-for="Usuario" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Pass" class="control-label"></label>
-                <input asp-for="Pass" class="form-control" />
-                <span asp-validation-for="Pass" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="ListaEstudiante">Back to List</a>
 </div>
 
 @section Scripts {
