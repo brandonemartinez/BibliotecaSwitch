@@ -69,22 +69,16 @@ namespace LibroBL.Repositorio
             };
         }
 
-        //public void Remove(int id)
-        //{
-        //    using (BibliotecaContext context = new BibliotecaContext())
-        //    {
-        //        Models.Libro estudiante = context.Libros.Where(w => w.NumeroLibro == id).FirstOrDefault();
-        //        context.Libros.Remove(estudiante);
+        internal void Remove(int isbn)
+        {
+            using(BibliotecaContext context = new BibliotecaContext())
+            {
+                Libro libro = context.Libros.Where(w => w.Isbn == isbn).FirstOrDefault();
+                context.Libros.Remove(libro);
 
-        //        if (estudiante.Idusuario != null)
-        //        {
-        //            Usuario usuario = context.Usuarios.Find(estudiante.Idusuario);
-        //            context.Usuarios.Remove(usuario);
-        //        }
-
-        //        context.SaveChanges();
-        //    };
-        //}
+                context.SaveChanges();
+            }
+        }
 
     }
 }

@@ -7,7 +7,7 @@
 <h1>Lista de Libros</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="AgregarLibro">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -43,9 +43,9 @@
                 @Html.DisplayFor(modelItem => item.FechaLanzamiento)
             </td>
             <td>
-                @Html.ActionLink("Edit", "EditarLibro", item) |
-                @Html.ActionLink("Details", "Details", item) |
-                @Html.ActionLink("Delete", "Delete", item)
+                @Html.ActionLink("Edit", "EditarLibro", new { Isbn = item.Isbn}) |
+                @Html.ActionLink("Details", "DetalleLibro", item) |
+                @Html.ActionLink("Delete", "BorrarLibro", item)
             </td>
         </tr>
 }

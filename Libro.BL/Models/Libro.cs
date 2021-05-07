@@ -25,7 +25,7 @@ namespace LibroBL.Models
 
         [DisplayName("Fecha de Lanzamiento")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         [Required(ErrorMessage = "Fecha de Nacimiento es requerido")]
         public DateTime? FechaLanzamiento { get; set; }
 

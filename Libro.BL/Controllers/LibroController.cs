@@ -39,10 +39,37 @@ namespace LibroBL.Controllers
             return View("EditarLibro", hlibro);
         }
 
-        public IActionResult EditarEstudianteSend(Libro libro)
+        public IActionResult EditarLibro(int Isbn)
+        {
+            var libro = foo.GetLibro(Isbn);
+            return View(libro);
+        }
+
+        public IActionResult EditSend(Libro libro)
         {
             foo.EditSend(libro);
-            return RedirectToAction("ListaEstudiante");
+            return RedirectToAction("ListaLibro");
+        }
+
+        public IActionResult DetalleLibro(Libro libro)
+        {
+            var Hlibro = foo.GetLibro(libro.Isbn);
+            return View(Hlibro);
+        }
+
+        public IActionResult BorrarLibro(Libro libro)
+        {
+            foo.Remove(libro.Isbn);
+            return RedirectToAction("ListaLibro");
+        }
+        public IActionResult EliminarLibro()
+        {
+            return View();
+        }
+
+        public IActionResult FindLibro()
+        {
+            return View();
         }
     }
 }
