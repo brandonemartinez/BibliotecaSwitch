@@ -1,0 +1,53 @@
+﻿@model IEnumerable<LibroBL.Models.Autor>
+
+@{
+    ViewData["Title"] = "Lista Autor";
+}
+
+<h1>Lista de Autores</h1>
+
+<p>
+    <a asp-action="AgregarAutor">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaNacimiento)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaNacimiento)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditarAutor", new { id = item.Id }) |
+                @Html.ActionLink("Details", "BuscarAutor", item) |
+                @Html.ActionLink("Delete", "BorrarAutor", item)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -4,10 +4,10 @@
 <div class="container">
     <div class="row">
         <div class="col text-center mt-5">
-            <button type="button" class="btn btn-primary btn-lg m-2">Lista de Autores</button>
-            <button type="button" class="btn btn-secondary btn-lg m-2">Agregar autor</button>
-            <button type="button" class="btn btn-primary btn-lg m-2">Buscar autor</button>
-            <button type="button" class="btn btn-secondary btn-lg m-2">Eliminar autor</button>
+            <a asp-area="" asp-controller="Autor" asp-action="ListaAutor"><button type="button" class="btn btn-primary btn-lg m-2">Lista de Autores</button></a>
+            <a asp-area="" asp-controller="Autor" asp-action="AgregarAutor"><button type="button" class="btn btn-secondary btn-lg m-2">Agregar autor</button></a>
+            <a asp-area="" asp-controller="Autor" asp-action="FindAutor"><button type="button" class="btn btn-primary btn-lg m-2">Buscar autor</button></a>
+            <a asp-area="" asp-controller="Autor" asp-action="EliminarAutor"><button type="button" class="btn btn-secondary btn-lg m-2">Eliminar autor</button></a>
         </div>
     </div>
 </div>

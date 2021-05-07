@@ -26,7 +26,7 @@ namespace LibroBL.Models
         [DisplayName("Fecha de Lanzamiento")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
-        [Required(ErrorMessage = "Fecha de Nacimiento es requerido")]
+        [Required(ErrorMessage = "Fecha de Lanzamiento es requerido")]
         public DateTime? FechaLanzamiento { get; set; }
 
         public virtual Autor IdautorNavigation { get; set; }

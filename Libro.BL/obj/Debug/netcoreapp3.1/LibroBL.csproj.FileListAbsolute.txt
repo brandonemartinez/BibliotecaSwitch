@@ -164,3 +164,9 @@ C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\obj\Debug\netcoreapp3.1\Razo
 C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\obj\Debug\netcoreapp3.1\Razor\Views\Libro\DetalleLibro.cshtml.g.cs
 C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\obj\Debug\netcoreapp3.1\Razor\Views\Libro\FindLibro.cshtml.g.cs
 C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\obj\Debug\netcoreapp3.1\Razor\Views\Libro\EliminarLibro.cshtml.g.cs
+C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\obj\Debug\netcoreapp3.1\Razor\Views\Autor\ListaAutor.cshtml.g.cs
+C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\obj\Debug\netcoreapp3.1\Razor\Views\Autor\AgregarAutor.cshtml.g.cs
+C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\obj\Debug\netcoreapp3.1\Razor\Views\Autor\BuscarAutor.cshtml.g.cs
+C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\obj\Debug\netcoreapp3.1\Razor\Views\Autor\EditarAutor.cshtml.g.cs
+C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\obj\Debug\netcoreapp3.1\Razor\Views\Autor\EliminarAutor.cshtml.g.cs
+C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\obj\Debug\netcoreapp3.1\Razor\Views\Autor\FindAutor.cshtml.g.cs

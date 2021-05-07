@@ -1,22 +1,18 @@
-﻿@model Estudiante
+﻿@model LibroBL.Models.Autor
 
 @{
-    ViewData["Title"] = "EditarEstudiante";
+    ViewData["Title"] = "EditarAutor";
 }
 
-<h1>Editar Estudiante</h1>
+<h1>Editar Autor</h1>
 
-<h4>Estudiante: @Html.DisplayFor(model => model.NumeroEstudiante)</h4>
+<h4>Autor</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="EditarEstudianteSend">
+        <form asp-action="EditarAutorSend">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="FechaNacimiento" class="control-label"></label>
-                <input asp-for="FechaNacimiento" class="form-control" />
-                <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
-            </div>
+            <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <label asp-for="Nombre" class="control-label"></label>
                 <input asp-for="Nombre" class="form-control" />
@@ -28,6 +24,11 @@
                 <span asp-validation-for="Apellido" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="FechaNacimiento" class="control-label"></label>
+                <input asp-for="FechaNacimiento" class="form-control" />
+                <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
@@ -35,7 +36,7 @@
 </div>
 
 <div>
-    <a asp-action="ListaEstudiante">Back to List</a>
+    <a asp-action="ListaAutor">Back to List</a>
 </div>
 
 @section Scripts {
