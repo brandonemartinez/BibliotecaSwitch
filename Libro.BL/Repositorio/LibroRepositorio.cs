@@ -13,7 +13,7 @@ namespace LibroBL.Repositorio
         {
         }
 
-        public IEnumerable<Models.Libro> GetLibros()
+        public List<Models.Libro> GetLibros()
         {
             List<Models.Libro> colLibros = new List<Models.Libro>();
             using (BibliotecaContext context = new BibliotecaContext())

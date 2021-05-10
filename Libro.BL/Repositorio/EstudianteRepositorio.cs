@@ -13,7 +13,7 @@ namespace LibroBL.Repositorio
         {
         }
 
-        public IEnumerable<Estudiante> GetEstudiantes()
+        public List<Estudiante> GetEstudiantes()
         {
             List<Estudiante> colEstudiantes = new List<Estudiante>();
             using (BibliotecaContext context = new BibliotecaContext())

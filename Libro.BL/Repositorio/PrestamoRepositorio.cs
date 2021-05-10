@@ -45,32 +45,32 @@ namespace LibroBL.Repositorio
 
         public List<LibroPrestamo> BuscarPrestamoID(int id)
         {
-            List<LibroPrestamo> colLibrosPrestamos = new List<LibroPrestamo>();
-            LibroRepositorio RepLibro = new LibroRepositorio();
-            List<Prestamo> colPrestamos = new List<Prestamo>();
-            var colLibros = RepLibro.GetLibros();
+            PrestamoEstudiante prestamoEstudiante = new PrestamoEstudiante();
+            //Se crea instancia de los repositos y se obtiene lista de Libros
+            //y Estudiantes
+            EstudianteRepositorio repEstu = new EstudianteRepositorio();
+            prestamoEstudiante.estudiante = repEstu.GetEstudiante(id);
 
+            LibroRepositorio repLibro = new LibroRepositorio();
+            List<Libro> colLibros = repLibro.GetLibros();
+
+
+
+
+            List<Prestamo> colPrestamos = new List<Prestamo>();
 
             using (BibliotecaContext context = new BibliotecaContext())
             {
-                colPrestamos = context.Prestamos.Where(w => w.NumeroEstudiante == id).ToList();
+                colPrestamos = context.Prestamos.Where(w => w.NumeroEstudiante == prestamoEstudiante.estudiante.NumeroEstudiante).ToList();
             }
+
 
             foreach (Prestamo prestamo in colPrestamos)
             {
-
-                LibroPrestamo helperLibroPrestamo = new LibroPrestamo();
-
-                helperLibroPrestamo.Libro.Isbn = libro.Isbn;
-                helperLibroPrestamo.Libro.Titulo = libro.Titulo;
-                helperLibroPrestamo.Prestamo.NumeroEstudiante = prestamo.NumeroEstudiante;
-                helperLibroPrestamo.Prestamo.FechaInicio = prestamo.FechaInicio;
-                helperLibroPrestamo.Prestamo.FechaFin = prestamo.FechaFin;
-                helperLibroPrestamo.Libro.Idautor = libro.Idautor;
-
+               
             }
 
-            return prestamos;
+            //return prestamos;
         }
     }
 }
