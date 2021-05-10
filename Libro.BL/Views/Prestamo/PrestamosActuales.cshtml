@@ -1,0 +1,60 @@
+﻿@model IEnumerable<LibroPrestamo>
+
+@{
+    ViewData["Title"] = "Prestamo de libros";
+}
+
+<h1>Lista de Prestamos y Autores</h1>
+
+<p>
+    <a asp-action="AgregarAutor">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Libro.Isbn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Libro.Titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prestamo.FechaInicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prestamo.FechaFin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prestamo.NumeroEstudiante)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Libro.Isbn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Libro.Titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prestamo.FechaInicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prestamo.FechaFin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prestamo.NumeroEstudiante)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditarAutor", new { id = item}) |
+                @Html.ActionLink("Details", "BuscarAutor", item) |
+                @Html.ActionLink("Delete", "BorrarAutor", item)
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

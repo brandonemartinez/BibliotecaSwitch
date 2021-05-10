@@ -14,11 +14,20 @@ namespace LibroBL.Repositorio
 
         public IEnumerable<Autor> GetAutores()
         {
-            List<Models.Autor> colAutores = new List<Autor>();
+            List<Autor> colAutores = new List<Autor>();
+            LibroRepositorio HelperLibros = new LibroRepositorio();
+            var colLibros = HelperLibros.GetLibros();
+
             using (BibliotecaContext context = new BibliotecaContext())
             {
                 colAutores = context.Autors.ToList();
             }
+
+            foreach (Autor item in colAutores)
+            {
+                item.Libros = colLibros.Where(w => w.Idautor == item.Id).ToList();
+            }            
+
             return colAutores;
         }
 
@@ -40,6 +49,7 @@ namespace LibroBL.Repositorio
             using (BibliotecaContext context = new BibliotecaContext())
             {
                 autor = context.Autors.Find(id);
+                autor.Libros = context.Libros.Where(w => w.Idautor == autor.Id).ToList();
             };
 
             return autor;

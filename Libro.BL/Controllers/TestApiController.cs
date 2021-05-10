@@ -20,7 +20,7 @@ namespace LibroBL.Controllers
         {
             var autores = foo.GetAutores();
 
-            if(autores !=null)
+            if(autores != null)
             {
                 return Ok(autores);
             }
