@@ -43,9 +43,10 @@ namespace LibroBL.Repositorio
             return helperLibros;
         }
 
-        public List<LibroPrestamo> BuscarPrestamoID(int id)
+        public PrestamoEstudiante BuscarPrestamoID(int id)
         {
             PrestamoEstudiante prestamoEstudiante = new PrestamoEstudiante();
+            
             //Se crea instancia de los repositos y se obtiene lista de Libros
             //y Estudiantes
             EstudianteRepositorio repEstu = new EstudianteRepositorio();
@@ -54,9 +55,6 @@ namespace LibroBL.Repositorio
             LibroRepositorio repLibro = new LibroRepositorio();
             List<Libro> colLibros = repLibro.GetLibros();
 
-
-
-
             List<Prestamo> colPrestamos = new List<Prestamo>();
 
             using (BibliotecaContext context = new BibliotecaContext())
@@ -64,13 +62,16 @@ namespace LibroBL.Repositorio
                 colPrestamos = context.Prestamos.Where(w => w.NumeroEstudiante == prestamoEstudiante.estudiante.NumeroEstudiante).ToList();
             }
 
-
             foreach (Prestamo prestamo in colPrestamos)
             {
-               
+                LibroPrestamo helper = new LibroPrestamo();
+                helper.Prestamo = prestamo;
+                helper.Libro = colLibros.Where(w => w.Isbn == prestamo.Isbn).FirstOrDefault();
+
+                prestamoEstudiante.libroPrestamos.Add(helper);
             }
 
-            //return prestamos;
+            return prestamoEstudiante;
         }
     }
 }

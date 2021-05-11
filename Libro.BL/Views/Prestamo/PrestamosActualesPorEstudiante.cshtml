@@ -1,0 +1,55 @@
+﻿@model PrestamoEstudiante
+
+@{
+    ViewData["Title"] = "Prestamo de libros";
+}
+
+<h1>Lista de prestamos del estudiante: @Html.DisplayFor(model => model.estudiante.NumeroEstudiante)</h1>
+
+<p>
+    <a asp-action="AgregarAutor">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.Label("Titulo")
+            </th>
+            <th>
+                @Html.Label("ISBN")
+            </th>
+            <th>
+                @Html.Label("Fecha Inicio")
+            </th>
+            <th>
+                @Html.Label("Fecha Fin")
+            </th>
+            <th>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.libroPrestamos)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Libro.Titulo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Libro.Isbn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prestamo.FechaInicio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prestamo.FechaFin)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditarAutor", new { id = item }) |
+                    @Html.ActionLink("Details", "BuscarAutor", item) |
+                    @Html.ActionLink("Delete", "BorrarAutor", item)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

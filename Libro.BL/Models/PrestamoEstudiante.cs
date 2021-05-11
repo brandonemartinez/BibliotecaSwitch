@@ -8,12 +8,12 @@ namespace LibroBL.Models
     public class PrestamoEstudiante
     {
         public Estudiante estudiante { get; set; }
-        public List<Libro> listLibros { get; set; }
+        public List<LibroPrestamo> libroPrestamos { get; set; }
 
         public PrestamoEstudiante()
         {
             estudiante = new Estudiante();
-            listLibros = new List<Libro>();
+            libroPrestamos = new List<LibroPrestamo>();
         }
 
     }
