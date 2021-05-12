@@ -1,7 +1,4 @@
-﻿using LibroBL.Models;
-using LibroBL.Repositorio;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,24 +13,9 @@ namespace LibroBL.Controllers
             return View();
         }
 
-        public IActionResult LogUser(Usuario user)
+        public IActionResult LogUser()
         {
-            LoginRepositorio foo = new LoginRepositorio();
-            var helper = foo.Usuario(user.NombreUsuario, user.Pass);
-            if (helper != null)
-            {
-
-                HttpContext.Session.SetString("User", helper.NombreUsuario);
-                HttpContext.Session.SetString("Pass", helper.Pass);
-                HttpContext.Session.SetString("Tipo", helper.Tipo);
-
-                return View("Index");
-            }
-            else
-            {
-                return View("LoginFailed");
-            }
-
+            return View();
         }
     }
 }
