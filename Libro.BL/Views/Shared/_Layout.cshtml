@@ -1,5 +1,8 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,36 +29,42 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Gestion de datos
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" asp-area="" asp-controller="Autor" asp-action="Index">Autores</a>
-                                <a class="dropdown-item" asp-area="" asp-controller="Libro" asp-action="Index">Libros</a>
-                                <a class="dropdown-item" asp-area="" asp-controller="Estudiante" asp-action="Index">Estudiantes</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Prestamos
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" asp-area="" asp-controller="Prestamo" asp-action="PrestamosActuales">Actuales</a>
-                                <a class="dropdown-item" asp-area="" asp-controller="Prestamo" asp-action="BuscarEstudiante">Por estudiante</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Estudiante
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Listado de libros</a>
-                                <a class="dropdown-item" href="#">Libros en prestamo</a>
-                                <a class="dropdown-item" href="#">Devolver libro</a>
-                                <a class="dropdown-item" href="#">Pedir libro</a>
-                            </div>
-                        </li>
+                        @if (HttpContextAccessor.HttpContext.Session.GetString("Tipo") == "Administrador")
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Gestion de datos
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" asp-area="" asp-controller="Autor" asp-action="Index">Autores</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Libro" asp-action="Index">Libros</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Estudiante" asp-action="Index">Estudiantes</a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Prestamos
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" asp-area="" asp-controller="Prestamo" asp-action="PrestamosActuales">Actuales</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Prestamo" asp-action="BuscarEstudiante">Por estudiante</a>
+                                </div>
+                            </li>
+                        }
+                        @if (HttpContextAccessor.HttpContext.Session.GetString("Tipo") == "Estudiante")
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Estudiante
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="#">Listado de libros</a>
+                                    <a class="dropdown-item" href="#">Libros en prestamo</a>
+                                    <a class="dropdown-item" href="#">Devolver libro</a>
+                                    <a class="dropdown-item" href="#">Pedir libro</a>
+                                </div>
+                            </li>
+                        }
                     </ul>
 
                 </div>

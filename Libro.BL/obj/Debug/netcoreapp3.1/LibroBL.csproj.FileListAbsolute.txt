@@ -157,6 +157,8 @@ C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\obj\Debug\netcoreapp3.1\Razo
 C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\obj\Debug\netcoreapp3.1\Razor\Views\Libro\FindLibro.cshtml.g.cs
 C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\obj\Debug\netcoreapp3.1\Razor\Views\Libro\Index.cshtml.g.cs
 C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\obj\Debug\netcoreapp3.1\Razor\Views\Libro\ListaLibro.cshtml.g.cs
+C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\obj\Debug\netcoreapp3.1\Razor\Views\Login\Index.cshtml.g.cs
+C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\obj\Debug\netcoreapp3.1\Razor\Views\Login\LoginFailed.cshtml.g.cs
 C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\obj\Debug\netcoreapp3.1\Razor\Views\Prestamo\BuscarEstudiante.cshtml.g.cs
 C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\obj\Debug\netcoreapp3.1\Razor\Views\Prestamo\Index.cshtml.g.cs
 C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\obj\Debug\netcoreapp3.1\Razor\Views\Prestamo\PrestamosActuales.cshtml.g.cs
@@ -173,6 +175,3 @@ C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\obj\Debug\netcoreapp3.1\Libr
 C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\obj\Debug\netcoreapp3.1\LibroBL.dll
 C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\obj\Debug\netcoreapp3.1\LibroBL.pdb
 C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\obj\Debug\netcoreapp3.1\LibroBL.genruntimeconfig.cache
-C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\obj\Debug\netcoreapp3.1\LibroBL.csprojAssemblyReference.cache
-C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\obj\Debug\netcoreapp3.1\Razor\Views\Login\Index.cshtml.g.cs
-C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\obj\Debug\netcoreapp3.1\Razor\Views\Login\LoginFailed.cshtml.g.cs

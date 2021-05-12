@@ -18,7 +18,14 @@ namespace LibroBL.Controllers
 
         public IActionResult ListaAutor()
         {
-            return View("ListaAutor", foo.GetAutores());
+            if ((string)ViewData["Tipo"] == "Administrador")
+            {
+                return View("ListaAutor", foo.GetAutores());
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
 
         public IActionResult AgregarAutor()
