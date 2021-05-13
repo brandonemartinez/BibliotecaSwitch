@@ -53,7 +53,7 @@ namespace LibroBL.Repositorio
 
             using (BibliotecaContext context = new BibliotecaContext())
             {
-                estudiante = context.Estudiantes.Find(id);
+                estudiante = context.Estudiantes.Where(w => w.Idusuario == id).FirstOrDefault();
             };
 
             return estudiante;

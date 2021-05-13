@@ -30,47 +30,103 @@ namespace LibroBL.Controllers
 
         public IActionResult AgregarAutor()
         {
-            return View();
+            if ((string)ViewData["Tipo"] == "Administrador")
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
 
         public IActionResult AgregarAutorDB(Autor autor)
         {
-            foo.Agregar(autor);
-            return RedirectToAction("ListaAutor");
+            if ((string)ViewData["Tipo"] == "Administrador")
+            {
+                foo.Agregar(autor);
+                return RedirectToAction("ListaAutor");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
 
         public IActionResult BuscarAutor(Autor autor)
         {
-            var HelperAutor = foo.GetAutor(autor.Id);
-            return View(HelperAutor);
+            if ((string)ViewData["Tipo"] == "Administrador")
+            {
+                var HelperAutor = foo.GetAutor(autor.Id);
+                return View(HelperAutor);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
 
         public IActionResult EditarAutor(int id)
         {
-            var autor = foo.GetAutor(id);
-            return View("EditarAutor", autor);
+            if ((string)ViewData["Tipo"] == "Administrador")
+            {
+                var autor = foo.GetAutor(id);
+                return View("EditarAutor", autor);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
 
         public IActionResult EditarAutorSend(Autor autor)
         {
-            foo.EditSend(autor);
-            return RedirectToAction("ListaAutor");
+            if ((string)ViewData["Tipo"] == "Administrador")
+            {
+                foo.EditSend(autor);
+                return RedirectToAction("ListaAutor");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
 
         public IActionResult BorrarAutor(Autor autor)
         {
-            foo.Remove(autor.Id);
-            return RedirectToAction("ListaAutor");
+            if ((string)ViewData["Tipo"] == "Administrador")
+            {
+                foo.Remove(autor.Id);
+                return RedirectToAction("ListaAutor");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
 
         public IActionResult EliminarAutor()
         {
-            return View();
+            if ((string)ViewData["Tipo"] == "Administrador")
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
 
         public IActionResult FindAutor()
         {
-            return View();
+            if ((string)ViewData["Tipo"] == "Administrador")
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
 
 

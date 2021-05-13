@@ -1,0 +1,54 @@
+﻿@model LibroBL.Models.Prestamo
+
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+
+@{
+    ViewData["Title"] = "CrearPrestamo";
+}
+
+<h1>CrearPrestamo</h1>
+
+<h4>Prestamo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="Prestamo" asp-action="CrearPrestamo">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @if (HttpContextAccessor.HttpContext.Session.GetString("Tipo") == "Administrador")
+            {
+                <div class="form-group">
+                    <label asp-for="NumeroEstudiante" class="control-label"></label>
+                    <select asp-for="NumeroEstudiante" class="form-control" asp-items="ViewBag.NumeroEstudiante"></select>
+                </div>
+            }
+            @if (HttpContextAccessor.HttpContext.Session.GetString("Tipo") == "Estudiante")
+            {
+                <div class="form-group">
+                    <label asp-for="NumeroEstudiante" class="control-label"></label>
+                    <input asp-for="NumeroEstudiante" type="text" class="col-form-label" value="@HttpContextAccessor.HttpContext.Session.GetString("NumeroEstudiante")" disabled />
+                    <span asp-validation-for="NumeroEstudiante" class="text-danger"></span>
+                </div>
+            }
+            <div class="form-group">
+                <label asp-for="FechaInicio" class="control-label"></label>
+                <input asp-for="FechaInicio" class="form-control" />
+                <span asp-validation-for="FechaInicio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaFin" class="control-label"></label>
+                <input asp-for="FechaFin" class="form-control" />
+                <span asp-validation-for="FechaFin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

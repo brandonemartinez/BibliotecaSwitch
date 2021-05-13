@@ -1,6 +1,7 @@
 ﻿using LibroBL.Models;
 using LibroBL.Repositorio;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -38,6 +39,25 @@ namespace LibroBL.Controllers
         public IActionResult PrestamosActualesPorEstudiante()
         {
             return View();
+        }
+
+        public IActionResult CrearPrestamo()
+        {
+            return View();
+        }
+
+        public IActionResult CrearPrestamoDB(int? ISBN)
+        {
+            HttpContext.Session.SetString("ISBN", ISBN.ToString());
+
+            if (HttpContext.Session.GetString("NumeroEstudiante") != null)
+            {                        
+                return RedirectToAction();
+            }
+            else
+            {
+                return RedirectToAction("PrestamosActuales");
+            };
         }
     }
 }

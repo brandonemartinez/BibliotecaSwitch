@@ -1,5 +1,8 @@
 ﻿@model IEnumerable<Libro>
 
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
 @{
     ViewData["Title"] = "ListaLibro";
 }
@@ -21,6 +24,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Titulo)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.FechaLanzamiento)
             </th>
@@ -28,26 +32,33 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Isbn)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Idautor)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Titulo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaLanzamiento)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "EditarLibro", new { Isbn = item.Isbn}) |
-                @Html.ActionLink("Details", "DetalleLibro", item) |
-                @Html.ActionLink("Delete", "BorrarLibro", item)
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Isbn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Idautor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Titulo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaLanzamiento)
+                </td>
+                @if (HttpContextAccessor.HttpContext.Session.GetString("Tipo") == "Administrador")
+                {
+                    <td>
+                        @Html.ActionLink("Edit", "EditarLibro", new { Isbn = item.Isbn }) |
+                        @Html.ActionLink("Details", "DetalleLibro", item) |
+                        @Html.ActionLink("Delete", "BorrarLibro", item)
+                    </td>
+                }
+                <td>
+                    @Html.ActionLink("Prestamo", "CrearPrestamo", "Prestamo", new { Isbn = item.Isbn })
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

@@ -175,3 +175,5 @@ C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\obj\Debug\netcoreapp3.1\Libr
 C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\obj\Debug\netcoreapp3.1\LibroBL.dll
 C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\obj\Debug\netcoreapp3.1\LibroBL.pdb
 C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\obj\Debug\netcoreapp3.1\LibroBL.genruntimeconfig.cache
+C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\obj\Debug\netcoreapp3.1\LibroBL.csprojAssemblyReference.cache
+C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\obj\Debug\netcoreapp3.1\Razor\Views\Prestamo\CrearPrestamo.cshtml.g.cs

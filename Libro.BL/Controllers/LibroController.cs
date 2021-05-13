@@ -13,7 +13,14 @@ namespace LibroBL.Controllers
         LibroRepositorio foo = new LibroRepositorio();
         public IActionResult Index()
         {
-            return View();
+            if ((string)ViewData["Tipo"] == "Administrador")
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
 
         public IActionResult ListaLibro()
@@ -24,37 +31,79 @@ namespace LibroBL.Controllers
 
         public IActionResult AgregarLibro()
         {
-            return View();
+            if ((string)ViewData["Tipo"] == "Administrador")
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
 
         public IActionResult AgregarLibroDB(Libro libro)
         {
-            foo.Agregar(libro);
-            return RedirectToAction("ListaLibro");
+            if ((string)ViewData["Tipo"] == "Administrador")
+            {
+                foo.Agregar(libro);
+                return RedirectToAction("ListaLibro");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
 
         public IActionResult LibroEstudiante(Libro libro)
         {
-            var hlibro = foo.GetLibro(libro.Isbn);
-            return View("EditarLibro", hlibro);
+            if ((string)ViewData["Tipo"] == "Administrador")
+            {
+                var hlibro = foo.GetLibro(libro.Isbn);
+                return View("EditarLibro", hlibro);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
 
         public IActionResult EditarLibro(int Isbn)
         {
-            var libro = foo.GetLibro(Isbn);
-            return View(libro);
+            if ((string)ViewData["Tipo"] == "Administrador")
+            {
+                var libro = foo.GetLibro(Isbn);
+                return View(libro);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
 
         public IActionResult EditSend(Libro libro)
         {
-            foo.EditSend(libro);
-            return RedirectToAction("ListaLibro");
+            if ((string)ViewData["Tipo"] == "Administrador")
+            {
+                foo.EditSend(libro);
+                return RedirectToAction("ListaLibro");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
 
         public IActionResult DetalleLibro(Libro libro)
         {
-            var Hlibro = foo.GetLibro(libro.Isbn);
-            return View(Hlibro);
+            if ((string)ViewData["Tipo"] == "Administrador")
+            {
+                var Hlibro = foo.GetLibro(libro.Isbn);
+                return View(Hlibro);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
 
         public IActionResult BorrarLibro(Libro libro)
