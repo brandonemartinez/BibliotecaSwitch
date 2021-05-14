@@ -52,6 +52,8 @@ namespace LibroBL.Controllers
 
             if (HttpContext.Session.GetString("NumeroEstudiante") != null)
             {                        
+                
+
                 return RedirectToAction();
             }
             else

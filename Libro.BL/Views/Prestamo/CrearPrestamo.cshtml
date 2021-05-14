@@ -14,7 +14,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-controller="Prestamo" asp-action="CrearPrestamo">
+        <form asp-controller="Prestamo" asp-action="CrearPrestamoDB">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             @if (HttpContextAccessor.HttpContext.Session.GetString("Tipo") == "Administrador")
             {
