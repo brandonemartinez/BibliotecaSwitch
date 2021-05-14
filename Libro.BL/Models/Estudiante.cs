@@ -28,10 +28,12 @@ namespace LibroBL.Models
 
         [StringLength(15, ErrorMessage = "El valor {0} no puede superar {1} caracteres")]
         [Required(ErrorMessage = "{0} es requerido")]
+        [DataType(DataType.Text)]
         public string Nombre { get; set; }
 
         [StringLength(15, ErrorMessage = "El valor {0} no puede superar {1} caracteres")]
         [Required(ErrorMessage = "{0} es requerido")]
+        [DataType(DataType.Text)]
         public string Apellido { get; set; }
 
         public virtual Usuario Usuario { get; set; }

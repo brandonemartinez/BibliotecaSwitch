@@ -1,5 +1,6 @@
 ﻿using LibroBL.Models;
 using LibroBL.Repositorio;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -13,12 +14,19 @@ namespace LibroBL.Controllers
         AutorRepositorio foo = new AutorRepositorio();
         public IActionResult Index()
         {
-            return View();
+            if (HttpContext.Session.GetString("Tipo") == "Administrador")
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
 
         public IActionResult ListaAutor()
         {
-            if ((string)ViewData["Tipo"] == "Administrador")
+            if (HttpContext.Session.GetString("Tipo") == "Administrador")
             {
                 return View("ListaAutor", foo.GetAutores());
             }
@@ -30,7 +38,7 @@ namespace LibroBL.Controllers
 
         public IActionResult AgregarAutor()
         {
-            if ((string)ViewData["Tipo"] == "Administrador")
+            if (HttpContext.Session.GetString("Tipo") == "Administrador")
             {
                 return View();
             }
@@ -42,7 +50,7 @@ namespace LibroBL.Controllers
 
         public IActionResult AgregarAutorDB(Autor autor)
         {
-            if ((string)ViewData["Tipo"] == "Administrador")
+            if (HttpContext.Session.GetString("Tipo") == "Administrador")
             {
                 foo.Agregar(autor);
                 return RedirectToAction("ListaAutor");
@@ -55,7 +63,7 @@ namespace LibroBL.Controllers
 
         public IActionResult BuscarAutor(Autor autor)
         {
-            if ((string)ViewData["Tipo"] == "Administrador")
+            if (HttpContext.Session.GetString("Tipo") == "Administrador")
             {
                 var HelperAutor = foo.GetAutor(autor.Id);
                 return View(HelperAutor);
@@ -68,7 +76,7 @@ namespace LibroBL.Controllers
 
         public IActionResult EditarAutor(int id)
         {
-            if ((string)ViewData["Tipo"] == "Administrador")
+            if (HttpContext.Session.GetString("Tipo") == "Administrador")
             {
                 var autor = foo.GetAutor(id);
                 return View("EditarAutor", autor);
@@ -81,7 +89,7 @@ namespace LibroBL.Controllers
 
         public IActionResult EditarAutorSend(Autor autor)
         {
-            if ((string)ViewData["Tipo"] == "Administrador")
+            if (HttpContext.Session.GetString("Tipo") == "Administrador")
             {
                 foo.EditSend(autor);
                 return RedirectToAction("ListaAutor");
@@ -94,7 +102,7 @@ namespace LibroBL.Controllers
 
         public IActionResult BorrarAutor(Autor autor)
         {
-            if ((string)ViewData["Tipo"] == "Administrador")
+            if (HttpContext.Session.GetString("Tipo") == "Administrador")
             {
                 foo.Remove(autor.Id);
                 return RedirectToAction("ListaAutor");
@@ -107,7 +115,7 @@ namespace LibroBL.Controllers
 
         public IActionResult EliminarAutor()
         {
-            if ((string)ViewData["Tipo"] == "Administrador")
+            if (HttpContext.Session.GetString("Tipo") == "Administrador")
             {
                 return View();
             }
@@ -119,7 +127,7 @@ namespace LibroBL.Controllers
 
         public IActionResult FindAutor()
         {
-            if ((string)ViewData["Tipo"] == "Administrador")
+            if (HttpContext.Session.GetString("Tipo") == "Administrador")
             {
                 return View();
             }

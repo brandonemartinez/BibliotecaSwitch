@@ -17,7 +17,7 @@ namespace LibroBL.Controllers
             return View();
         }
 
-        public IActionResult LogUser(Usuario user)
+        public IActionResult LoginUser(Usuario user)
         {
             LoginRepositorio foo = new LoginRepositorio();
             var helper = foo.Usuario(user.NombreUsuario, user.Pass);
@@ -30,13 +30,19 @@ namespace LibroBL.Controllers
                     HttpContext.Session.SetString("NumeroEstudiante", numeroEstudiante.ToString());
                 }
 
-                return View("Index");
+                return RedirectToAction("Index", "Home");
             }
             else
             {
                 return View("LoginFailed");
             }
 
+        }
+
+        public IActionResult LogoutUser()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index", "Home");
         }
 
     }

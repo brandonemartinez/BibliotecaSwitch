@@ -10,8 +10,10 @@ namespace LibroBL.Models
     public partial class Prestamo
     {
         [DisplayName("ISBN")]
+        [DataType(DataType.Text)]
         public int Isbn { get; set; }
         [DisplayName("Numero de Estudiante")]
+        [DataType(DataType.Text)]
         public int NumeroEstudiante { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]

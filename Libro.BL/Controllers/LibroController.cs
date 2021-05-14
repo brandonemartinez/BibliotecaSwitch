@@ -1,5 +1,6 @@
 ﻿using LibroBL.Models;
 using LibroBL.Repositorio;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace LibroBL.Controllers
         LibroRepositorio foo = new LibroRepositorio();
         public IActionResult Index()
         {
-            if ((string)ViewData["Tipo"] == "Administrador")
+            if (HttpContext.Session.GetString("Tipo") == "Administrador")
             {
                 return View();
             }
@@ -31,7 +32,7 @@ namespace LibroBL.Controllers
 
         public IActionResult AgregarLibro()
         {
-            if ((string)ViewData["Tipo"] == "Administrador")
+            if (HttpContext.Session.GetString("Tipo") == "Administrador")
             {
                 return View();
             }
@@ -43,7 +44,7 @@ namespace LibroBL.Controllers
 
         public IActionResult AgregarLibroDB(Libro libro)
         {
-            if ((string)ViewData["Tipo"] == "Administrador")
+            if (HttpContext.Session.GetString("Tipo") == "Administrador")
             {
                 foo.Agregar(libro);
                 return RedirectToAction("ListaLibro");
@@ -56,7 +57,7 @@ namespace LibroBL.Controllers
 
         public IActionResult LibroEstudiante(Libro libro)
         {
-            if ((string)ViewData["Tipo"] == "Administrador")
+            if (HttpContext.Session.GetString("Tipo") == "Administrador")
             {
                 var hlibro = foo.GetLibro(libro.Isbn);
                 return View("EditarLibro", hlibro);
@@ -69,7 +70,7 @@ namespace LibroBL.Controllers
 
         public IActionResult EditarLibro(int Isbn)
         {
-            if ((string)ViewData["Tipo"] == "Administrador")
+            if (HttpContext.Session.GetString("Tipo") == "Administrador")
             {
                 var libro = foo.GetLibro(Isbn);
                 return View(libro);
@@ -82,7 +83,7 @@ namespace LibroBL.Controllers
 
         public IActionResult EditSend(Libro libro)
         {
-            if ((string)ViewData["Tipo"] == "Administrador")
+            if (HttpContext.Session.GetString("Tipo") == "Administrador")
             {
                 foo.EditSend(libro);
                 return RedirectToAction("ListaLibro");
@@ -95,7 +96,7 @@ namespace LibroBL.Controllers
 
         public IActionResult DetalleLibro(Libro libro)
         {
-            if ((string)ViewData["Tipo"] == "Administrador")
+            if (HttpContext.Session.GetString("Tipo") == "Administrador")
             {
                 var Hlibro = foo.GetLibro(libro.Isbn);
                 return View(Hlibro);
@@ -108,17 +109,38 @@ namespace LibroBL.Controllers
 
         public IActionResult BorrarLibro(Libro libro)
         {
-            foo.Remove(libro.Isbn);
-            return RedirectToAction("ListaLibro");
+            if (HttpContext.Session.GetString("Tipo") == "Administrador")
+            {
+                foo.Remove(libro.Isbn);
+                return RedirectToAction("ListaLibro");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
         public IActionResult EliminarLibro()
         {
-            return View();
+            if (HttpContext.Session.GetString("Tipo") == "Administrador")
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
 
         public IActionResult FindLibro()
         {
-            return View();
+            if (HttpContext.Session.GetString("Tipo") == "Administrador")
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
     }
 }

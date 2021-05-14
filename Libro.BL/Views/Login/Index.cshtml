@@ -1,16 +1,16 @@
 ﻿@model Usuario
 
 @{
-    ViewData["Title"] = "View";
+    ViewData["Title"] = "Login";
 }
 
-<h1>Login</h1>
+<h1>Login de Usuarios</h1>
 
 <h4>Usuario</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="LogUser">
+        <form asp-action="LoginUser">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="NombreUsuario" class="control-label"></label>
@@ -30,7 +30,7 @@
 </div>
 
 <div>
-    <a asp-action="ListaEstudiante">Back to List</a>
+    <a asp-action="Index" asp-controller="Home">Back to Home</a>
 </div>
 
 @section Scripts {
