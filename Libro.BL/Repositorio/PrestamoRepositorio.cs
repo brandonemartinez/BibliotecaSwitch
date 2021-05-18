@@ -46,7 +46,7 @@ namespace LibroBL.Repositorio
         public PrestamoEstudiante BuscarPrestamoID(int id)
         {
             PrestamoEstudiante prestamoEstudiante = new PrestamoEstudiante();
-            
+
             //Se crea instancia de los repositos y se obtiene lista de Libros
             //y Estudiantes
             EstudianteRepositorio repEstu = new EstudianteRepositorio();
@@ -72,6 +72,25 @@ namespace LibroBL.Repositorio
             }
 
             return prestamoEstudiante;
+        }
+
+        public void CrearPrestamo(Prestamo pres)
+        {
+            using (BibliotecaContext context = new BibliotecaContext())
+            {
+                context.Prestamos.Add(pres);
+
+                context.SaveChanges();
+            }
+        }
+        public void EliminarPrestamo(int isbn, int numeroEstudiante)
+        {
+            using (BibliotecaContext context = new BibliotecaContext())
+            {
+                Prestamo pres = context.Prestamos.Where(w => w.Isbn == isbn && w.NumeroEstudiante == numeroEstudiante).FirstOrDefault();
+                context.Remove(pres);
+                context.SaveChanges();
+            };
         }
     }
 }

@@ -12,6 +12,7 @@
     <div class="col-md-4">
         <form asp-action="EditarEstudianteSend">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="NumeroEstudiante" />
             <div class="form-group">
                 <label asp-for="FechaNacimiento" class="control-label"></label>
                 <input asp-for="FechaNacimiento" class="form-control" />

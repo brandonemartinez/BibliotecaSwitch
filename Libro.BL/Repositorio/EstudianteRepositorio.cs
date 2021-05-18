@@ -53,6 +53,18 @@ namespace LibroBL.Repositorio
 
             using (BibliotecaContext context = new BibliotecaContext())
             {
+                estudiante = context.Estudiantes.Where(w => w.NumeroEstudiante == id).FirstOrDefault();
+            };
+
+            return estudiante;
+        }
+
+        public Estudiante GetEstudianteByUserID(int id)
+        {
+            Estudiante estudiante = new Estudiante();
+
+            using (BibliotecaContext context = new BibliotecaContext())
+            {
                 estudiante = context.Estudiantes.Where(w => w.Idusuario == id).FirstOrDefault();
             };
 
@@ -77,6 +89,13 @@ namespace LibroBL.Repositorio
             using (BibliotecaContext context = new BibliotecaContext())
             {
                 Estudiante estudiante = context.Estudiantes.Where(w => w.NumeroEstudiante == id).FirstOrDefault();
+                List<Prestamo> prestamos = context.Prestamos.Where(w => w.NumeroEstudiante == id).ToList();
+
+                foreach (Prestamo prestamo in prestamos)
+                {
+                    context.Prestamos.Remove(prestamo);
+                }
+
                 context.Estudiantes.Remove(estudiante);
 
                 if (estudiante.Idusuario != null)

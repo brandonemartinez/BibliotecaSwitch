@@ -7,7 +7,7 @@
 <h1>Lista de prestamos del estudiante: @Html.DisplayFor(model => model.estudiante.NumeroEstudiante)</h1>
 
 <p>
-    <a asp-action="AgregarAutor">Create New</a>
+    <a asp-action="ListaLibro" asp-controller="Libro">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -45,9 +45,7 @@
                     @Html.DisplayFor(modelItem => item.Prestamo.FechaFin)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "EditarAutor", new { id = item }) |
-                    @Html.ActionLink("Details", "BuscarAutor", item) |
-                    @Html.ActionLink("Delete", "BorrarAutor", item)
+                    @Html.ActionLink("Devolver", "EliminarPrestamo", new { Isbn = item.Libro.Isbn, NumeroEstudiante = Model.estudiante.NumeroEstudiante })
                 </td>
             </tr>
         }

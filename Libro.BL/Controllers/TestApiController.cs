@@ -20,7 +20,7 @@ namespace LibroBL.Controllers
         {
             var autores = foo.GetAutores();
 
-            if(autores != null)
+            if (autores != null)
             {
                 return Ok(autores);
             }
@@ -28,8 +28,30 @@ namespace LibroBL.Controllers
             {
                 return NotFound("No hay elementos en la lista");
             }
-            
-            
+
+
+        }
+
+        [HttpGet("{Id}")]
+        public IActionResult Get(int id)
+        {
+            var autor = foo.GetAutor(id);
+
+            if (autor != null)
+            {
+                return Ok(autor);
+            }
+            else
+            {
+                return NotFound("No hay elementos en la lista");
+            }
+        }
+
+        [HttpPost("agregar")]
+        public IActionResult Post(Autor autor)
+        {   
+             foo.Agregar(autor);
+             return CreatedAtAction(nameof(Post), autor);
         }
     }
 }

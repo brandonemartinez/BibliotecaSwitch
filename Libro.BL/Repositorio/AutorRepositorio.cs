@@ -73,6 +73,7 @@ namespace LibroBL.Repositorio
             using (BibliotecaContext context = new BibliotecaContext())
             {
                 List<Libro> colLibros = context.Libros.Where(w => w.Idautor == id).ToList();
+
                 foreach (Libro libro in colLibros)
                 {
                     context.Libros.Remove(libro);

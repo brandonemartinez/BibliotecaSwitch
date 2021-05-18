@@ -8,10 +8,12 @@
 }
 
 <h1>Lista de Libros</h1>
-
-<p>
-    <a asp-action="AgregarLibro">Create New</a>
-</p>
+@if (HttpContextAccessor.HttpContext.Session.GetString("Tipo") == "Administrador")
+{
+    <p>
+        <a asp-action="AgregarLibro">Create New</a>
+    </p>
+}
 <table class="table">
     <thead>
         <tr>
@@ -28,6 +30,10 @@
             <th>
                 @Html.DisplayNameFor(model => model.FechaLanzamiento)
             </th>
+            @if (HttpContextAccessor.HttpContext.Session.GetString("Tipo") == "Administrador")
+            {
+                <th></th>
+            }
             <th></th>
         </tr>
     </thead>
@@ -56,7 +62,7 @@
                     </td>
                 }
                 <td>
-                    @Html.ActionLink("Prestamo", "CrearPrestamoDB", "Prestamo", new { Isbn = item.Isbn })
+                    @Html.ActionLink("Prestamo", "CrearPrestamo", "Prestamo", new { Isbn = item.Isbn })
                 </td>
             </tr>
         }

@@ -20,7 +20,13 @@
             {
                 <div class="form-group">
                     <label asp-for="NumeroEstudiante" class="control-label"></label>
-                    <select asp-for="NumeroEstudiante" class="form-control" asp-items="ViewBag.NumeroEstudiante"></select>
+                    <input asp-for="NumeroEstudiante" type="text" class="form-control" asp-items="ViewBag.NumeroEstudiante">
+                    <span asp-validation-for="NumeroEstudiante" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Isbn" class="control-label"></label>
+                    <input asp-for="Isbn" type="text" class="form-control" asp-items="ViewBag.NumeroEstudiante">
+                    <span asp-validation-for="Isbn" class="text-danger"></span>
                 </div>
             }
             @if (HttpContextAccessor.HttpContext.Session.GetString("Tipo") == "Estudiante")

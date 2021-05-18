@@ -57,10 +57,6 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.5, )"
-            },
-            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
-              "target": "Package",
-              "version": "[3.1.5, )"
             }
           },
           "imports": [

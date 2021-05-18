@@ -39,7 +39,7 @@ namespace LibroBL.Repositorio
         {
             EstudianteRepositorio repEstu = new EstudianteRepositorio();
 
-            int NumEstu = repEstu.GetEstudiante(id).NumeroEstudiante;
+            int NumEstu = repEstu.GetEstudianteByUserID(id).NumeroEstudiante;
 
             return NumEstu;
         }

@@ -18,10 +18,12 @@ namespace LibroBL.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         [DisplayName("Fecha Incio")]
+        [Required(ErrorMessage = "{0} es requerido")]
         public DateTime? FechaInicio { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         [DisplayName("Fecha Fin")]
+        [Required(ErrorMessage = "{0} es requerido")]
         public DateTime? FechaFin { get; set; }
 
         public virtual Libro IsbnNavigation { get; set; }

@@ -27,7 +27,7 @@ namespace LibroBL.Controllers
                 if (helper.Tipo == "Estudiante")
                 {
                     var numeroEstudiante = foo.GetEstudianteId(helper.Id);
-                    HttpContext.Session.SetString(" ", numeroEstudiante.ToString());
+                    HttpContext.Session.SetString("NumeroEstudiante", numeroEstudiante.ToString());
                 }
 
                 return RedirectToAction("Index", "Home");

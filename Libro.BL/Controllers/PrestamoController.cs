@@ -32,7 +32,16 @@ namespace LibroBL.Controllers
 
         public IActionResult PrestamosActualesEstudiante(Estudiante estudiante)
         {
-            var prestamos = foo.BuscarPrestamoID(estudiante.NumeroEstudiante);
+            PrestamoEstudiante prestamos;
+
+            if (HttpContext.Session.GetString("NumeroEstudiante") != null)
+            {
+                prestamos = foo.BuscarPrestamoID(int.Parse(HttpContext.Session.GetString("NumeroEstudiante")));
+            }
+            else
+            {
+                prestamos = foo.BuscarPrestamoID(estudiante.NumeroEstudiante);
+            }
             return View("PrestamosActualesPorEstudiante", prestamos);
         }
 
@@ -41,25 +50,48 @@ namespace LibroBL.Controllers
             return View();
         }
 
-        public IActionResult CrearPrestamo()
+        public IActionResult CrearPrestamo(int? ISBN)
         {
+            HttpContext.Session.SetString("ISBN", ISBN.ToString());
             return View();
         }
 
-        public IActionResult CrearPrestamoDB(int? ISBN)
+        public IActionResult CrearPrestamoDB(Prestamo prestamo)
         {
-            HttpContext.Session.SetString("ISBN", ISBN.ToString());
 
             if (HttpContext.Session.GetString("NumeroEstudiante") != null)
-            {                        
-                
-
-                return RedirectToAction();
+            {
+                Estudiante estu = new Estudiante(); 
+                estu.NumeroEstudiante = int.Parse(HttpContext.Session.GetString("NumeroEstudiante"));
+                prestamo.Isbn = int.Parse(HttpContext.Session.GetString("ISBN"));
+                prestamo.NumeroEstudiante = int.Parse(HttpContext.Session.GetString("NumeroEstudiante"));
+                foo.CrearPrestamo(prestamo);
+                return RedirectToAction("PrestamosActualesEstudiante", estu);
             }
             else
             {
+                foo.CrearPrestamo(prestamo);
                 return RedirectToAction("PrestamosActuales");
             };
+        }
+
+        public IActionResult EliminarPrestamo(int Isbn, int NumeroEstudiante)
+        {
+
+
+            if (HttpContext.Session.GetString("NumeroEstudiante") != null)
+            {
+                Estudiante estu = new Estudiante();
+                estu.NumeroEstudiante = int.Parse(HttpContext.Session.GetString("NumeroEstudiante"));
+                foo.EliminarPrestamo(Isbn, NumeroEstudiante);
+                return RedirectToAction("PrestamosActualesEstudiante", estu);
+            }
+            else
+            {
+                foo.EliminarPrestamo(Isbn, NumeroEstudiante);
+                return RedirectToAction("PrestamosActuales");
+            }
+
         }
     }
 }

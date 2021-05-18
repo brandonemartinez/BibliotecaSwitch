@@ -7,7 +7,7 @@
 <h1>Lista de Prestamos</h1>
 
 <p>
-    <a asp-action="AgregarAutor">Create New</a>
+    <a asp-action="CrearPrestamo">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -50,9 +50,7 @@
                 @Html.DisplayFor(modelItem => item.Prestamo.NumeroEstudiante)
             </td>
             <td>
-                @Html.ActionLink("Edit", "EditarAutor", new { id = item}) |
-                @Html.ActionLink("Details", "BuscarAutor", item) |
-                @Html.ActionLink("Delete", "BorrarAutor", item)
+                @Html.ActionLink("Eliminar", "EliminarPrestamo", new { Isbn = item.Libro.Isbn, NumeroEstudiante = item.Prestamo.NumeroEstudiante})
             </td>
         </tr>
         }
