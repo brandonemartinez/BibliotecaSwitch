@@ -50,7 +50,8 @@ namespace LibroBL.Repositorio
             //Se crea instancia de los repositos y se obtiene lista de Libros
             //y Estudiantes
             EstudianteRepositorio repEstu = new EstudianteRepositorio();
-            prestamoEstudiante.estudiante = repEstu.GetEstudiante(id);
+
+            //prestamoEstudiante.estudiante = repEstu.GetEstudiante(id);
 
             LibroRepositorio repLibro = new LibroRepositorio();
             List<Libro> colLibros = repLibro.GetLibros();

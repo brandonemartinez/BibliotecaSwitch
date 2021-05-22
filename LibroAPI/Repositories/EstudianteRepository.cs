@@ -1,4 +1,5 @@
 ﻿using LibroAPI.Models;
+using LibroAPI.Services;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LibroAPI.Repositories
 {
-    public class EstudianteRepository
+    public class EstudianteRepository : IServiceEstudiante
     {
         private readonly BibliotecaContext _context;
 
@@ -16,18 +17,15 @@ namespace LibroAPI.Repositories
             _context = context;
         }
 
-        public List<Estudiante> GetEstudiantes()
+        public async Task<List<Estudiante>> GetEstudiantes()
         {
-            return _context.Estudiantes.ToList();
+            return await _context.Estudiantes.ToListAsync();
         }
 
 
-        public Estudiante GetEstudiante(int id)
+        public async Task<Estudiante> GetEstudiante(int id)
         {
-            var estudiante = _context.Estudiantes.Find(id);
-
-
-            return estudiante;
+            return await _context.Estudiantes.FindAsync(id);
         }
 
 

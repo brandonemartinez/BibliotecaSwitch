@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using LibroAPI.Models;
+using LibroAPI.Repositories;
+using LibroAPI.Services;
 
 namespace LibroAPI.Controllers
 {
@@ -14,17 +16,19 @@ namespace LibroAPI.Controllers
     public class EstudianteController : ControllerBase
     {
         private readonly BibliotecaContext _context;
+        private readonly IServiceEstudiante _estudianteRepository;
 
-        public EstudianteController(BibliotecaContext context)
+        public EstudianteController(BibliotecaContext context, IServiceEstudiante estudianteRepository)
         {
             _context = context;
+            _estudianteRepository = estudianteRepository;
         }
 
         // GET: api/Estudiante
         [HttpGet]
-        public IActionResult GetEstudiantes()
+        public async Task<IActionResult> GetEstudiantes()
         {
-            return Ok(_context.Estudiantes.ToList());
+            return Ok(await _estudianteRepository.GetEstudiantes());
         }
 
         // GET: api/Estudiante/5
@@ -38,18 +42,12 @@ namespace LibroAPI.Controllers
                 return NotFound();
             }
 
-            return estudiante;
+            return Ok(estudiante);
         }
 
-        // PUT: api/Estudiante/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutEstudiante(int id, Estudiante estudiante)
+        public async Task<IActionResult> PutEstudiante(Estudiante estudiante)
         {
-            if (id != estudiante.NumeroEstudiante)
-            {
-                return BadRequest();
-            }
 
             _context.Entry(estudiante).State = EntityState.Modified;
 
@@ -59,7 +57,7 @@ namespace LibroAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!EstudianteExists(id))
+                if (!EstudianteExists(estudiante.NumeroEstudiante))
                 {
                     return NotFound();
                 }

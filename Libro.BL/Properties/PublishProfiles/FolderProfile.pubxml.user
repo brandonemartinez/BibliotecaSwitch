@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <History>True|2021-05-21T19:14:05.5692935Z;False|2021-05-21T16:13:39.3886206-03:00;</History>
+    <_PublishTargetUrl>C:\Users\bmartinez\source\repos\Biblioteca\Libro.BL\bin\Release\netcoreapp3.1\publish\</_PublishTargetUrl>
+  </PropertyGroup>
+</Project>

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace LibroBL.Controllers
 {
+    //Colocar los validadores de los requests
     public class EstudianteController : Controller
     {
         EstudianteRepositorio foo = new EstudianteRepositorio();
@@ -21,31 +22,31 @@ namespace LibroBL.Controllers
         {
             return View();
         }
-        public IActionResult ListaEstudiante()
+        public async Task<IActionResult> ListaEstudiante()
         {
-            var list = foo.GetEstudiantes();
+            var list = await foo.GetEstudiante();
             return View(list);
         }
 
-        public IActionResult AgregarEstudianteDB(UsuarioEstudiante estudiante)
+        public async Task<IActionResult> AgregarEstudianteDB(UsuarioEstudiante estudiante)
         {
             foo.Agregar(estudiante);
             return RedirectToAction("ListaEstudiante");
         }
 
-        public IActionResult BuscarEstudiante(Estudiante estudiante)
+        public async Task<IActionResult> BuscarEstudiante(Estudiante estudiante)
         {
-            var HelperEstudiante = foo.GetEstudiante(estudiante.NumeroEstudiante);
+            var HelperEstudiante = await foo.GetEstudiante(estudiante.NumeroEstudiante);
             return View(HelperEstudiante);
         }
 
-        public IActionResult EditarEstudiante(int id)
+        public async Task<IActionResult> EditarEstudiante(int id)
         {
-            var estudiante = foo.GetEstudiante(id);
+            var estudiante = await foo.GetEstudiante(id);
             return View("EditarEstudiante", estudiante);
         }
 
-        public IActionResult EditarEstudianteSend(Estudiante estudiante)
+        public async Task<IActionResult> EditarEstudianteSend(Estudiante estudiante)
         {
             foo.EditSend(estudiante);
             return RedirectToAction("ListaEstudiante");

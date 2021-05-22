@@ -1,4 +1,6 @@
 using LibroAPI.Models;
+using LibroAPI.Repositories;
+using LibroAPI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -31,11 +33,13 @@ namespace LibroAPI
 
             services.AddControllers();
             services.AddHttpContextAccessor();
+            services.AddScoped<IServiceEstudiante, EstudianteRepository>();
 
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "LibroAPI", Version = "v1" });
             });
+
 
             services.AddDbContext<BibliotecaContext>(Options => Options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
         }

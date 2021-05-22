@@ -1,29 +1,49 @@
 ﻿
 using LibroBL.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace LibroBL.Repositorio
 {
     public class EstudianteRepositorio
     {
+        private readonly string url = "https://localhost:44398/api/Estudiante/";
         public EstudianteRepositorio()
         {
         }
 
-        public List<Estudiante> GetEstudiantes()
+        public async Task<List<Estudiante>> GetEstudiante()
         {
             List<Estudiante> colEstudiantes = new List<Estudiante>();
-            using (BibliotecaContext context = new BibliotecaContext())
+            using (HttpClient http = new HttpClient())
             {
-                colEstudiantes = context.Estudiantes.ToList();
+                var response = await http.GetStringAsync(url);
+                colEstudiantes = JsonConvert.DeserializeObject<List<Estudiante>>(response);
             }
+
             return colEstudiantes;
         }
 
-        public void Agregar(UsuarioEstudiante _estudiante)
+
+        public async Task<Estudiante> GetEstudiante(int id)
+        {
+            Estudiante estudiante = new Estudiante();
+
+            using (HttpClient http = new HttpClient())
+            {
+                var response = await http.GetStringAsync(url + $"{id}");
+                estudiante = JsonConvert.DeserializeObject<Estudiante>(response);
+            };
+
+            return estudiante;
+        }
+        public async void Agregar(UsuarioEstudiante _estudiante)
         {
             Estudiante est = new Estudiante();
             est.Nombre = _estudiante.Nombre;
@@ -35,28 +55,14 @@ namespace LibroBL.Repositorio
             usu.NombreUsuario = _estudiante.Usuario;
             usu.Tipo = "Estudiante";
 
-            using (BibliotecaContext context = new BibliotecaContext())
+            using (HttpClient http = new HttpClient())
             {
-                context.Usuarios.Add(usu);
+                var myContent = JsonConvert.SerializeObject(est);
+                var byteContent = new StringContent(myContent);
+                byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-                est.Usuario = usu;
-                context.Estudiantes.Add(est);
-
-                context.SaveChanges();
-
+                var response = await http.PostAsync(url, byteContent);
             };
-        }
-
-        public Estudiante GetEstudiante(int id)
-        {
-            Estudiante estudiante = new Estudiante();
-
-            using (BibliotecaContext context = new BibliotecaContext())
-            {
-                estudiante = context.Estudiantes.Where(w => w.NumeroEstudiante == id).FirstOrDefault();
-            };
-
-            return estudiante;
         }
 
         public Estudiante GetEstudianteByUserID(int id)
@@ -71,41 +77,25 @@ namespace LibroBL.Repositorio
             return estudiante;
         }
 
-        public void EditSend(Estudiante estudiante)
+        public async void EditSend(Estudiante estudiante)
         {
-            using (BibliotecaContext context = new BibliotecaContext())
+            using (HttpClient http = new HttpClient())
             {
-                Estudiante Hestudiante = context.Estudiantes.Where(w => w.NumeroEstudiante == estudiante.NumeroEstudiante).FirstOrDefault();
-                Hestudiante.Nombre = estudiante.Nombre;
-                Hestudiante.Apellido = estudiante.Apellido;
-                Hestudiante.FechaNacimiento = estudiante.FechaNacimiento;
+                var myContent = JsonConvert.SerializeObject(estudiante);
+                var byteContent = new StringContent(myContent);
+                byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-                context.SaveChanges();
+                await http.PutAsync(url + estudiante.NumeroEstudiante, byteContent);
             };
         }
 
         public void Remove(int id)
         {
-            using (BibliotecaContext context = new BibliotecaContext())
+            using (HttpClient http = new HttpClient())
             {
-                Estudiante estudiante = context.Estudiantes.Where(w => w.NumeroEstudiante == id).FirstOrDefault();
-                List<Prestamo> prestamos = context.Prestamos.Where(w => w.NumeroEstudiante == id).ToList();
+                http.DeleteAsync(url + id);
+            }
 
-                foreach (Prestamo prestamo in prestamos)
-                {
-                    context.Prestamos.Remove(prestamo);
-                }
-
-                context.Estudiantes.Remove(estudiante);
-
-                if (estudiante.Idusuario != null)
-                {
-                    Usuario usuario = context.Usuarios.Find(estudiante.Idusuario);
-                    context.Usuarios.Remove(usuario);
-                }
-
-                context.SaveChanges();
-            };
         }
 
     }
